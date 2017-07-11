@@ -16,6 +16,7 @@
                 </a>
             @endforeach
         </div>
+        @isset($upcomingGames)
         <div class="widget">
             <h2><strong>Upcoming Games</strong></h2>
             @foreach($upcomingGames as $game)
@@ -32,8 +33,9 @@
                 </a>
             @endforeach
         </div>
+        @endisset
         <div class="widget">
-            <h2><strong>Upcoming Games</strong></h2>
+            <h2><strong>Popular Games</strong></h2>
             @foreach($popularGames as $game)
                 <a href="/game/{{$game->game_url}}" title="Download {{$game->game_name}}" target="_blank"
                    data-html="true"

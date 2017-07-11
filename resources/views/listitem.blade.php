@@ -1,5 +1,4 @@
 @extends('layout.gxm')
-
 @section('title', 'All Games - Category '.$categoryInfo->category_name.' - Free Download')
 @section('description', $categoryInfo->category_des)
 @section('wallpaper',$categoryInfo->category_wallpaper)
@@ -7,7 +6,10 @@
 @section('content')
     <div class="content">
         <div class="container">
-            <h1 class="title-game"><strong>All Games On Category: <a href="/category/{{$categoryInfo->category_url}}" title="{{$categoryInfo->category_des}}" target="_blank">{{$categoryInfo->category_name}} - Free Download</a></strong>
+            <h1 class="title-game"><strong>All Games On Category: <a href="/category/{{$categoryInfo->category_url}}"
+                                                                     title="{{$categoryInfo->category_des}}"
+                                                                     target="_blank">{{$categoryInfo->category_name}} -
+                        Free Download</a></strong>
             </h1>
             <div class="row">
                 <div class="col-md-12">

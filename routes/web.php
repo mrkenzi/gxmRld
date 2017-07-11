@@ -11,9 +11,28 @@
 |
 */
 
-Route::get('/', 'GameController@_homepage');
-Route::get('/category/{rqUrl?}','GameController@_category');
-Route::get('/listgame-download','GameController@_listAllGames');
-Route::get('/game/{rqUrl?}','GameController@_viewGame');
-Route::get('/mod/{rqUrl?}','GameController@_category');
-Route::get('/download/{rqUrl?}','GameController@_category');
+Route::get('/', 'GameController@_homepage')->name('home');
+Route::get('upcoming-game', 'GameController@_upComing');
+Route::get('listgame-download', 'GameController@_listAllGames');
+Route::get('category/{rqUrl}', 'GameController@_category');
+Route::get('game/{rqUrl}', 'GameController@_viewGame');
+Route::get('mod/{rqUrl}', 'GameController@_viewMod');
+Route::get('download/{rqUrl}', 'GameController@_download');
+
+Route::resource('request-game', 'RequestGameController');
+
+Route::group(['middleware' => 'auth'], function () {
+    //    Route::get('/link1', function ()    {
+//        // Uses Auth Middleware
+//    });
+
+    //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
+    #adminlte_routes
+    Route::group(['prefix' => 'admin'], function () {
+        Route::get('', 'PostController@index');
+        Route::resource('post', 'PostController');
+    });
+
+});
+
+Auth::routes();

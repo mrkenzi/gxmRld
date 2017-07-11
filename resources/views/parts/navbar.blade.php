@@ -29,9 +29,8 @@
                     </ul>
                 </li>
                 <li><a href="/listgame-download">List All Game</a></li>
-                <li><a href="/pc-repack">Pc Repack</a></li>
-                <li><a href="/request">Request Game</a></li>
-                <li><a href="/upcoming">Upcoming Game</a></li>
+                <li><a href="/request-game">Request Game</a></li>
+                <li><a href="/upcoming-game">Upcoming Game</a></li>
                 <li><a href="/news-game">News Game</a></li>
             </ul>
         </nav>

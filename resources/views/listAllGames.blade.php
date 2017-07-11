@@ -20,8 +20,8 @@
                                title="{{$game->game_name}}" rel="bookmark" data-html="true">
                                 <h3 class="post-title">{{$game->game_name}}</h3>
                             </a>
-                            <p class='label label-primary'>Category:</p> {{$game->category_name}}
-                            <p class='label label-info'>Description:</p> {{$game->game_des}}
+                            <p><span class="label label-primary">Category:</span> {{$game->category_name}}</p>
+                            <p><span class="label label-warning">Description:</span> {{$game->game_des}}</p>
                         </div>
                     </div>
                 @endforeach

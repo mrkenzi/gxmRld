@@ -17,7 +17,6 @@
                                                                     title="{{$itemGame->game_seo}}">{{$itemGame->game_name}}</a>
                 <span class="pull-right">{{$itemGame->count_view}} Views </i><i class="fa fa-eye"></i></span>
             </div>
-            <hr/>
             <div class="blog">
                 <div class="row">
                     <div class="col-md-8">
@@ -32,8 +31,8 @@
                                 <p><span class="label label-success">Category:</span> {{$itemGame->category_name}}</p>
                                 <p><span class="label label-info">Release Date:</span> Updating...</p>
                                 <p><span class="label label-danger">Description:</span> {{$itemGame->game_des}}</p>
-                                <button class="btn btn-primary">Download</button>
-                                <button class="btn btn-info">System Requirement</button>
+                                <button class="btn btn-primary" id="download-click">Download</button>
+                                <button class="btn btn-info" id="requirement-click">System Requirement</button>
                             </div>
                             <div class="col-md-12">
                                 @php
@@ -41,7 +40,7 @@
                                 $game_content = str_replace('<iframe','<iframe width="100%" ',$game_content);
                                 @endphp
                                 {!! $game_content !!}
-                                <span class="downloadzone"></span>
+                                <span id="downloadzone"></span>
                                 {!! $itemGame->downloadzone !!}
                             </div>
                         </div>
@@ -66,3 +65,17 @@
         </div>
     </div>
 @stop
+@section('js')
+    <script>
+        $("#download-click").click(function() {
+            $('html, body').animate({
+                scrollTop: $( "h2:contains('Download')" ).offset().top
+            }, 2000);
+        });
+        $("#requirement-click").click(function() {
+            $('html, body').animate({
+                scrollTop: $( "h2:contains('System Requirements')" ).offset().top
+            }, 2000);
+        });
+    </script>
+    @stop
