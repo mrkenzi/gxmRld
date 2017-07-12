@@ -35,4 +35,10 @@ CKEDITOR.editorConfig = function( config ) {
 
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
+	//Added Plugins
+    config.autosave_SaveKey = 'autosaveKey';
+    config.autosave_NotOlderThen = 1440;
+    config.autosave_saveOnDestroy = true;
+    config.autosave_saveDetectionSelectors = "input[id*='Save']";
+    config.imgurClientId = 'd0bf91e7083d597';
 };

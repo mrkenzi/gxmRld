@@ -11,6 +11,8 @@
 |
 */
 
+Auth::routes();
+
 Route::get('/', 'GameController@_homepage')->name('home');
 Route::get('upcoming-game', 'GameController@_upComing');
 Route::get('listgame-download', 'GameController@_listAllGames');
@@ -28,11 +30,12 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
-    Route::group(['prefix' => 'admin'], function () {
-        Route::get('', 'PostController@index');
-        Route::resource('post', 'PostController');
-    });
+    Route::get('admin', 'PostController@index');
+    Route::resource('admin/post', 'PostController');
+    Route::resource('admin/mod-cms', 'ModController');
+    Route::resource('admin/category-cms', 'CategoryController');
+    Route::get('admin/mod-create/{gameId}', 'ModController@_create');
+    Route::get('admin/mod-create-tool', 'ModController@_createTool');
 
 });
 
-Auth::routes();

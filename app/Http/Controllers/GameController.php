@@ -9,12 +9,12 @@ use Illuminate\Support\Facades\DB;
 
 class GameController extends Controller
 {
-    //
+    //Active 0,1,2,3: Hide,Active,Featured,Upcoming
     protected function _listAllGames()
     {
         $allGames = DB::table('games')
             ->join('game_category', 'games.game_category', '=', 'game_category.id')
-            ->where('games.game_active', '>', '0')
+            ->where('games.game_active', 1)
             ->orderBy('games.game_name', 'asc')
             ->paginate(20);
         return view("listAllGames", ['allGames' => $allGames]);
@@ -26,19 +26,20 @@ class GameController extends Controller
         $itemGame = DB::table('games')
             ->join('game_category', 'games.game_category', '=', 'game_category.id')
             ->where('games.game_url', $paramUrl)
+            ->where('games.game_active', 1)
             ->first();
         $this->_updateView('game', $itemGame->game_url);
         $relatedGames = DB::table('games')
             ->join('game_category', 'games.game_category', '=', 'game_category.id')
             ->where('games.game_category', $itemGame->game_category)
+            ->where('games.game_active', 1)
             ->orderBy(DB::raw('RAND()'))
             ->limit(4)
             ->get();
         $popularGames = DB::table('games')
             ->join('game_category', function ($join) {
                 $join->on('games.game_category', '=', 'game_category.id')
-                    ->where('games.upcoming', '0')
-                    ->where('games.game_active', '>', '0');
+                    ->where('games.game_active', 1);
             })
             ->orderBy('games.count_view', 'desc')
             ->select('games.*', 'game_category.*')
@@ -47,8 +48,7 @@ class GameController extends Controller
         $upcomingGames = DB::table('games')
             ->join('game_category', function ($join) {
                 $join->on('games.game_category', '=', 'game_category.id')
-                    ->where('games.upcoming', '>', '0')
-                    ->where('games.game_active', '>', '0');
+                    ->where('games.game_active', 2);
             })
             ->orderBy('games.created_at', 'desc')
             ->select('games.*', 'game_category.*')
@@ -99,7 +99,6 @@ class GameController extends Controller
             $relatedGames = DB::table('games')
                 ->join('game_category', 'games.game_category', '=', 'game_category.id')
                 ->where('games.game_active', '>', '0')
-                ->where('games.upcoming', '>', '0')
                 ->orderBy(DB::raw('RAND()'))
                 ->paginate(12);
             return view('notFound', ['title' => "URL Not Found", 'findMore' => $relatedGames]);
@@ -112,7 +111,6 @@ class GameController extends Controller
         $newGames = DB::table('games')
             ->join('game_category', function ($join) {
                 $join->on('games.game_category', '=', 'game_category.id')
-                    ->where('games.upcoming', '0')
                     ->where('games.game_active', '>', '0');
             })
             ->orderBy('games.created_at', 'desc')
@@ -147,7 +145,7 @@ class GameController extends Controller
             ->select('mods.*', 'games.game_name', 'games.game_url')
             ->limit(20)
             ->get();*/
-        return view('home', ['newGames' => $newGames]);
+        return view('homeGxm', ['newGames' => $newGames]);
     }
 
     public function _viewMod(Request $rq)
@@ -199,8 +197,7 @@ class GameController extends Controller
         $upComing = DB::table('games')
             ->join('game_category', function ($join) {
                 $join->on('games.game_category', '=', 'game_category.id')
-                    ->where('games.upcoming', '1')
-                    ->where('games.game_active', '>', '0');
+                    ->where('games.upcoming', 3);
             })
             ->orderBy('games.created_at', 'desc')
             ->select('games.*', 'game_category.*')

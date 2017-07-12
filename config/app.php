@@ -169,6 +169,8 @@ return [
         Laravel\Tinker\TinkerServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         JeroenNoten\LaravelAdminLte\ServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
+        Cviebrock\EloquentSluggable\ServiceProvider::class,
         /*
          * Application Service Providers...
          */
