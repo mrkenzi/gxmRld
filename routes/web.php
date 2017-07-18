@@ -37,5 +37,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('admin/mod-create/{gameId}', 'ModController@_create');
     Route::get('admin/mod-create-tool', 'ModController@_createTool');
 
+    Route::get('admin/craw-game', 'CrawController@_index');
+    Route::get('admin/get-new/{pagestart}/{pageend}', 'CrawController@_getNew');
+    Route::get('admin/craw-game/{crawId}', 'CrawController@_getInfo');
+    Route::get('admin/craw-remove/{crawId}', 'CrawController@_removeCraw');
+
 });
 

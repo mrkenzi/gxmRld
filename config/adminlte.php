@@ -111,22 +111,27 @@ return [
         'Backend CMS',
         [
             'text' => 'Post',
-            'url'  => 'admin/post',
+            'url' => 'admin/post',
             'icon' => 'gamepad',
         ],
         [
             'text' => 'Mod',
-            'url'  => 'admin/mod-cms',
+            'url' => 'admin/mod-cms',
             'icon' => 'cogs',
         ],
         [
             'text' => 'Category',
-            'url'  => 'admin/category-cms',
+            'url' => 'admin/category-cms',
             'icon' => 'tree',
         ],
         [
             'text' => 'Media',
-            'url'  => 'admin/media-cms',
+            'url' => 'admin/media-cms',
+            'icon' => '500px',
+        ],
+        [
+            'text' => 'Craw Game',
+            'url' => 'admin/craw-game',
             'icon' => '500px',
         ]
     ],

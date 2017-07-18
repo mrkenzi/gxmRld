@@ -53,7 +53,7 @@ class CategoryController extends Controller
 
         $gameInsert->save();
 
-        return redirect()->route('admin.category.index');
+        return redirect()->route('admin.category');
     }
 
     /**
@@ -119,7 +119,7 @@ class CategoryController extends Controller
         $post = CategoryDb::findOrFail($id);
         $post->delete();
 
-        return redirect()->route('admin.category.index')
+        return redirect()->route('admin.category')
             ->with('flash_message',
                 'Article successfully deleted');
     }
