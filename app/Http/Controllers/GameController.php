@@ -191,6 +191,18 @@ class GameController extends Controller
             ->get();
         return view('download', ['downloadContent' => $downloadContent, 'suggestGame' => $suggestGame]);
     }
+    protected function _downloadBs64(Request $rq)
+    {
+        $dlUrl = base64_decode(trim($rq->dlUrl));
+        $nameGame = base64_decode(trim($rq->nameGame));
+        $suggestGame = DB::table('games')
+            ->join('game_category', 'games.game_category', '=', 'game_category.id')
+            ->where('games.game_active', '>', '0')
+            ->orderBy(DB::raw('RAND()'))
+            ->limit(6)
+            ->get();
+        return view('dlbase64', ['dlUrl' => $dlUrl, 'nameGame' => $nameGame, 'suggestGame' => $suggestGame]);
+    }
     protected function _upComing()
     {
         //$list_category = DB::table('game_category')->get();

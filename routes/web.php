@@ -20,6 +20,7 @@ Route::get('category/{rqUrl}', 'GameController@_category');
 Route::get('game/{rqUrl}', 'GameController@_viewGame');
 Route::get('mod/{rqUrl}', 'GameController@_viewMod');
 Route::get('download/{rqUrl}', 'GameController@_download');
+Route::get('dl-game/{dlUrl}/{nameGame}', 'GameController@_downloadBs64');
 
 Route::resource('request-game', 'RequestGameController');
 

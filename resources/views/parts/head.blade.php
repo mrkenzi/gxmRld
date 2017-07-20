@@ -12,21 +12,10 @@
 <meta property="og:description" content="@yield('description')"/>
 <meta property="og:site_name" content="GamexMod"/>
 <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
-<!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
-<link rel="stylesheet" href="{{asset('css/settings.css')}}" media="screen"/>
-<!-- Pretty Photo CSS -->
-<link href="{{asset('css/prettyPhoto.css')}}" rel="stylesheet">
-<!-- Parallax slider -->
-<link rel="stylesheet" href="{{asset('css/slider.css')}}">
-<!-- Flexslider -->
-<link rel="stylesheet" href="{{asset('css/flexslider.css')}}">
-<!-- Font awesome CSS -->
-<link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
 <!-- Custom CSS -->
 <link href="{{asset('css/style.css')}}" rel="stylesheet">
 <!-- Colors - Orange, Purple, Light Blue (lblue), Red, Green and Blue
 <link href="css/green.css" rel="stylesheet">-->
-<link href="{{asset('css/organce.css')}}" rel="stylesheet">
 <link href="{{asset('css/custom.css')}}" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Rajdhani:300,400,600,700" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">

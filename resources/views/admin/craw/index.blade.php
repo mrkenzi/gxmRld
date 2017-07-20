@@ -39,9 +39,9 @@
                             @endif
                             <td>
                                 <div class="btn-group pull-right">
-                                    <a href="{{ route('admin.craw-game', $craw->id) }}" class="btn btn-info"
+                                    <a href="/admin/craw-game/{{ $craw->id }}" target=_blank class="btn btn-info"
                                        role="button"><i class="fa fa-paper-plane"></i></a>
-                                    <a href="{{ route('craw-remove', $craw->id) }}" class="btn btn-danger"
+                                    <a href="/admin/craw-remove/{{ $craw->id }}" class="btn btn-danger"
                                        role="button"><i class="fa fa-remove"></i></a>
                                 </div>
                             </td>

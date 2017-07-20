@@ -22,6 +22,7 @@
                         <th>Thumbnail</th>
                         <th>Description</th>
                         <th>Created</th>
+                        <th>Status</th>
                         <th class="col-sm-2">Action</th>
                     </tr>
                     </thead>
@@ -34,11 +35,20 @@
                             <td>{{$game->game_des}}</td>
                             <td>{{$game->created_at}}</td>
                             <td>
+                                @if($game->game_active == 1) <span class="label bg-green">Active</span>
+                                @elseif($game->game_active == 2) <span class="label bg-aqua-active">Featured</span>
+                                @elseif($game->game_active == 3) <span class="label bg-fuchsia-active">Upcoming</span>
+                                @else <span class="label bg-red">Hide</span>
+                                @endif
+                            </td>
+                            <td>
                                 <div class="btn-group pull-right">
                                     <a href="{{ route('post.edit', $game->id) }}" class="btn btn-info"
                                        role="button"><i class="fa fa-edit"></i></a>
-                                    <a href="{{ route('post.destroy', $game->id) }}" class="btn btn-danger"
-                                       role="button"><i class="fa fa-remove"></i></a>
+                                    {{ Form::open(['url' => 'admin/post/' . $game->id]) }}
+                                    {{ Form::hidden('_method', 'DELETE') }}
+                                    {{ Form::button('<i class="fa fa-close"></i>', ['class' => 'btn btn-danger','type'=>'submit']) }}
+                                    {{ Form::close() }}
                                     <a href="/admin/mod-create/{{ $game->id }}" class="btn btn-primary"
                                        role="button"><i class="fa fa-cog"></i></a>
                                 </div>
@@ -48,12 +58,13 @@
                     </tbody>
                     <tfoot>
                     <tr>
-                        <th>ID</th>
+                        <th>Id</th>
                         <th>Title</th>
                         <th>Thumbnail</th>
                         <th>Description</th>
-                        <th>Created At</th>
-                        <th>Action</th>
+                        <th>Created</th>
+                        <th>Status</th>
+                        <th class="col-sm-2">Action</th>
                     </tr>
                     </tfoot>
                 </table>
@@ -68,6 +79,7 @@
     <script>
         $(document).ready(function () {
             $('#example2').DataTable({
+                "order": [[ 0, "desc" ]],
                 'paging': false,
                 'lengthChange': false,
                 'searching': true,

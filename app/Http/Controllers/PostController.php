@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use App\GameDb;
 class PostController extends Controller
@@ -15,7 +16,7 @@ class PostController extends Controller
     public function index()
     {
         //
-        $listGames = DB::table('games')->where('game_active', 1)->orderBy('id', 'desc')->paginate(10);
+        $listGames = DB::table('games')->orderBy('id', 'desc')->paginate(10);
         return view('admin.index', ['listGames' => $listGames]);
     }
 
@@ -47,7 +48,7 @@ class PostController extends Controller
             'game_active' =>'required',
             'game_thumbnail' =>'required',
             'game_wallpaper' =>'required',
-            'game_des' =>'required|max:160',
+            'game_des' =>'required|max:255',
             'game_content' =>'required',
             'downloadzone' =>'required',
         ]);
@@ -108,7 +109,7 @@ class PostController extends Controller
             'game_active' =>'required',
             'game_thumbnail' =>'required',
             'game_wallpaper' =>'required',
-            'game_des' =>'required|max:160',
+            'game_des' =>'required|max:255',
             'game_content' =>'required',
             'downloadzone' =>'required',
         ]);
@@ -138,11 +139,8 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
-        $post = GameDb::findOrFail($id);
-        $post->delete();
+        GameDb::destroy($id);
 
-        return redirect()->route('posts.index')
-            ->with('flash_message',
-                'Article successfully deleted');
+        return redirect()->route('post.index');
     }
 }

@@ -422,7 +422,6 @@ input[type="tel"], input[type="url"], input[type="text"] {
 
 header {
     background-attachment: fixed;
-    background-image: url("../img/body-bg1.jpg");
     background-position: left top;
     background-repeat: repeat;
 }

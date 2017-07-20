@@ -1,28 +1,27 @@
 @extends('layout.gxm')
 
-@section('title', $downloadContent->game)
-@section('description', $downloadContent->game)
+@section('title', $nameGame)
+@section('description', $nameGame)
 
 @section('content')
     <div class="content">
         <div class="container blog">
-            <div class="">
-                <div class="row">
-                    <h1 class="title-game text-center"><strong>{{$downloadContent->game}}</strong></h1>
-                    <p class="text-center">Support Us By Click ADS ! Thanks u</p>
-                    <div class="col-md-4">
+            <div class="row">
+                <h1 class="title-game text-center"><strong>{{$nameGame}}</strong></h1>
+                <p class="text-center">Support Us By Click ADS ! Thanks u</p>
+                <div class="col-md-4">
 
-                    </div>
-                    <div class="col-md-4">
-                        <div id="countDown" data-timer="10"></div>
-                        <h3>
-                            <a id="downloadNow" class="btn btn-block btn-success" id="download-now" rel="nofollow" href="{{$downloadContent->link}}" target="_blank" style="display: none">Download Now</a>
-                        </h3>
-                    </div>
-                    <div class="col-md-4">
-
-                    </div>
                 </div>
+                <div class="col-md-4">
+                    <div id="countDown" data-timer="10"></div>
+                    <h3>
+                        <a id="downloadNow" class="btn btn-block btn-success" id="download-now" rel="nofollow" href="{{$dlUrl}}" target="_blank" style="display: none">Download Now</a>
+                    </h3>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+            </div>
                 <h2>RECOMMENDED</h2>
                 <div class="col-md-12">
                     <div id="custom_carousel" class="carousel slide" data-ride="carousel" data-interval="2500">

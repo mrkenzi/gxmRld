@@ -29,7 +29,7 @@
         {{ Form::text('game_wallpaper', null, ['class' => 'form-control']) }}
 
         {{ Form::label('game_des', 'Description') }}
-        {{ Form::textarea('game_des', null, ['class' => 'form-control','rows' => 2]) }}
+        {{ Form::text('game_des', null, ['class' => 'form-control','rows' => 2]) }}
 
         {{ Form::label('passunrar', 'Pass Unrar') }}
         {{ Form::text('passunrar', null, ['class' => 'form-control']) }}
