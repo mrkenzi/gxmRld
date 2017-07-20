@@ -92,7 +92,7 @@ class GameController extends Controller
                 ->where('games.game_active', '>', '0')
                 ->orderBy('games.created_at', 'desc')
                 ->paginate(20);
-            return view('listItem', ['listGames' => $categoryGames,
+            return view('listitem', ['listGames' => $categoryGames,
                 'categoryInfo' => $getCategoryid
             ]);
         } else {
@@ -209,7 +209,7 @@ class GameController extends Controller
         $upComing = DB::table('games')
             ->join('game_category', function ($join) {
                 $join->on('games.game_category', '=', 'game_category.id')
-                    ->where('games.upcoming', 3);
+                    ->where('games.game_active', 3);
             })
             ->orderBy('games.created_at', 'desc')
             ->select('games.*', 'game_category.*')

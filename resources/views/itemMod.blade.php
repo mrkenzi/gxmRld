@@ -32,7 +32,7 @@
                                 <p><span class="label label-info">Release Date:</span> Updating...</p>
                                 <p><span class="label label-danger">Description:</span> {{$itemGame->mods_des}}</p>
                                 <button class="btn btn-primary" id="download-click">Download</button>
-                                <a class="btn btn-primary" href="/game/{{$itemGame->game_url}}" title="{{$itemGame->game_name}}">Download Game</a>
+                                <a class="btn btn-primary" href="/game/{{$itemGame->game_url}}" title="{{$itemGame->game_name}}" style="margin-top: 0">Download Game</a>
                             </div>
                             <div class="col-md-12">
                                 @php

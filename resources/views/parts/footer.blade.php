@@ -25,10 +25,16 @@
 <script src="{{asset('js/masonry.min.js')}}"></script>
 <script>
     $( document ).ready(function() {
-        var newGame = $('#new-games');
-        newGame.masonry({
-            itemSelector: '.new-game'
-        });
+        refresh();
+        function refresh() {
+            var newGame = $('#new-games');
+            newGame.masonry({
+                itemSelector: '.new-game'
+            });
+        }
+        setTimeout(function () {
+            refresh();
+        },2000);
         $('[data-toggle="popover"]').popover();
     });
 

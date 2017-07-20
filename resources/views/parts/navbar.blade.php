@@ -31,7 +31,7 @@
                 <li><a href="/listgame-download">List All Game</a></li>
                 <li><a href="/request-game">Request Game</a></li>
                 <li><a href="/upcoming-game">Upcoming Game</a></li>
-                <li><a href="/news-game">News Game</a></li>
+                <li><a href="#">News Game</a></li>
             </ul>
         </nav>
 
