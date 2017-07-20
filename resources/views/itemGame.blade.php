@@ -74,7 +74,7 @@
         });
         $("#requirement-click").click(function() {
             $('html, body').animate({
-                scrollTop: $( "h2:contains('System Requirements')" ).offset().top
+                scrollTop: $( "h2:contains('System Require')" ).offset().top
             }, 2000);
         });
     </script>

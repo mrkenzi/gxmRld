@@ -78,7 +78,7 @@ class CrawController extends Controller
         $getCrawInfo = DB::table('craw')->where('craw_status',0)->where('id',$request->crawId)->first();
         $checkExits = DB::table('games')->where('game_name','like',$getCrawInfo->craw_title.'%')->count();
         if($checkExits > 0){
-            return redirect()->route('admin.post');
+            return redirect()->route('post');
         }
         //dd($getCrawInfo);
         $infoGame = $this->_postUrl("http://localhost:8081/api/get-info", json_encode(['urlProduct' => $getCrawInfo->craw_url,'nameProduct'=>$getCrawInfo->craw_title]));

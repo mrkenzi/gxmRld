@@ -18,10 +18,7 @@
         <div class="clearfix"></div>
     </div>
 </footer>
-<script
-        src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/html5shiv.js')}}"></script>
 <script src="{{asset('js/site.js')}}"></script>
@@ -32,6 +29,7 @@
         newGame.masonry({
             itemSelector: '.new-game'
         });
+        $('[data-toggle="popover"]').popover();
     });
 
 </script>
